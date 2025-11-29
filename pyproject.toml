@@ -28,3 +28,17 @@ dev = [
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.autopep8]
+max_line_length = 1000
+
+[tool.flake8]
+max-line-length = 1000
+
+[tool.isort]
+profile = "black"
+line_length = 1000
+
+[tool.poe.tasks]
+lint = "flake8 ./horse_racing_scheduler/"
+fix = [{cmd="autopep8 -ivr ./horse_racing_scheduler/"}, {cmd="isort ./horse_racing_scheduler/"}]
